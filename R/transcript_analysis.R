@@ -8,7 +8,9 @@ load_transcripts <- function(file_path) {
   if (!file.exists(file_path)) {
     stop("The specified file does not exist.")
   }
-  transcripts <- readDNAStringSet(file_path)
+
+  # 使用 :: 语法调用 Biostrings 中的函数
+  transcripts <- Biostrings::readDNAStringSet(file_path)
   return(transcripts)
 }
 
@@ -22,7 +24,8 @@ load_transcripts <- function(file_path) {
 #' @return A `DNAStringSet` object containing the filtered transcript sequences.
 #' @export
 filter_transcripts <- function(transcripts, min_length) {
-  filtered <- transcripts[width(transcripts) > min_length]
+  # 使用 :: 语法调用 Biostrings 中的函数
+  filtered <- transcripts[Biostrings::width(transcripts) > min_length]
   return(filtered)
 }
 
@@ -41,8 +44,9 @@ filter_transcripts <- function(transcripts, min_length) {
 #'   - `gc_content_mean`: The mean GC content across all transcripts.
 #' @export
 summarize_transcripts <- function(transcripts) {
-  lengths <- width(transcripts)
-  gc_content <- letterFrequency(transcripts, letters = c("G", "C"), as.prob = TRUE)
+  # 使用 :: 语法调用 Biostrings 中的函数
+  lengths <- Biostrings::width(transcripts)
+  gc_content <- Biostrings::letterFrequency(transcripts, letters = c("G", "C"), as.prob = TRUE)
   summary <- list(
     total_sequences = length(transcripts),
     max_length = max(lengths),
@@ -65,12 +69,13 @@ summarize_transcripts <- function(transcripts) {
 #' @return NULL
 #' @export
 plot_length_distribution <- function(transcripts, output_file = NULL) {
-  lengths <- width(transcripts)
-  hist(lengths, breaks = 50, main = "Transcript Length Distribution",
-       xlab = "Length (bp)", col = "skyblue", border = "white")
+  # 使用 :: 语法调用 Biostrings 中的函数
+  lengths <- Biostrings::width(transcripts)
+  graphics::hist(lengths, main = "Transcript Length Distribution",
+                 xlab = "Length (bp)", col = "skyblue", border = "white")
   
   if (!is.null(output_file)) {
-    dev.copy(png, file = output_file)
-    dev.off()  # Close the device after saving the plot
+    grDevices::dev.copy(png, file = output_file)
+    grDevices::dev.off()  # Close the device after saving the plot
   }
 }
