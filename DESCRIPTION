@@ -1,0 +1,13 @@
+Package: SeqToolbox
+Title: A Toolbox for Sequence Analysis
+Version: 0.1.0
+Authors@R: 
+    person("Jihua", "Ouyang", email = "oyjh417701@163.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7265-1134"))
+Description: A package for sequence analysis, including transcript processing, filtering, and visualization.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    Biostrings
