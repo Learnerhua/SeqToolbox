@@ -27,6 +27,7 @@ print(summary)
 #Plot the distribution of transcript lengths and save it as a PNG file
 plot_length_distribution(transcripts, output_file = "transcript_lengths.png")
 ```
+![](https://github.com/Learnerhua/SeqToolbox/blob/master/example/length_distribution.png)
 
 # Dependencies
 - Biostrings: Used for reading and manipulating biological sequence data.
