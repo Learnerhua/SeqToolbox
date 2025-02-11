@@ -7,14 +7,14 @@
 - Visualization: Generate histograms of transcript length distributions.
 # Installation
 To install SeqToolbox from GitHub, use the following commands:
-```
+```r
 #Install devtools if you haven't already
 install.packages("devtools")
 #Install SeqToolbox from GitHub
 devtools::install_github("Learnerhua/SeqToolbox")
 ```
 # Example Usage
-```
+```r
 #Load the SeqToolbox package
 library(SeqToolbox)
 #Load transcript data from a FASTA file
